@@ -9,7 +9,7 @@ import Pagination from "../../../components/common/Pagination";
 export default {
   components: {
     Vuetable,
-    Pagination
+    Pagination,
   },
   created() {
     // Use our api to fetch our role listing
@@ -20,15 +20,14 @@ export default {
       if (!this.loading) {
         this.fetch();
       }
-    }, 250)
+    }, 250),
   },
   methods: {
     // Handler to properly format date/time columns according to localized format
     formatDate(value, format) {
-      format = format || '';
+      format = format || "";
       if (value) {
-        return window.moment(value)
-          .format(format);
+        return window.moment(value).format(format);
       }
       return "n/a";
     },
@@ -75,8 +74,7 @@ export default {
         this.page = this.data.meta.last_page;
       }
       this.fetch();
-    }
-
+    },
   },
   data() {
     return {
@@ -88,8 +86,8 @@ export default {
       perPage: 10,
       // Our loading flag
       loading: false,
-      // What column to order by (default of name)
-      orderBy: "name",
+      // What column to order by (default of email)
+      orderBy: "email",
       // What direction to order by (default of ascending)
       orderDirection: "asc",
       // Cancel token which should be stored from axios if you want to cancel the current in progress request
@@ -106,11 +104,11 @@ export default {
         descendingClass: "descending",
         renderIcon(classes, options) {
           return `<i class="${classes.join(" ")}"></i>`;
-        }
+        },
       },
       noDataTemplate() {
-        return "asdfas#####1111"
-      }
+        return "asdfas#####1111";
+      },
     };
-  }
+  },
 };
